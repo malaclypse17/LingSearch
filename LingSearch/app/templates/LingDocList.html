@@ -1,0 +1,34 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <!--Search: <input ng-model="query">
+            Sort by:
+            <select ng-model="orderProp">
+                <option value="title">Alphabetical</option>
+                <option value="year">Year</option>
+            </select>-->
+        </div>
+        <div class="col-md-12">
+            <div class="container">
+                <div ng-repeat="document in documents" class="col-md-4">
+                    <div class="lingDoc panel panel-default">
+                        <div class="panel-heading">
+                            <h4><a class="lingDocTitle" href="#">{{document.title}} <span ng-show="document.year"> ({{document.year}})</span></a></h4>
+                        </div>
+                        <div class="panel-body">
+                            <img ng-show="document.titleThumbnail" class="pull-right" ng-src="/files/titlepages/thumbs/{{document.titleThumbnail}}">
+                            <p ng-show="document.author">{{document.author}}</p>
+                            {{document.language}}<span ng-show="document.city">, {{document.city}}</span><span ng-show="document.year"> ({{document.year}})</span>
+                            <p ng-show="document.illustrations">{{document.illustrations}}</p>
+                        </div>
+                        <div class="panel-footer">
+                            <button class="btn btn-default" ng-click=" openUpdate(document);">Ändra</button>
+                            <button class="btn btn-danger" ng-click="delete(document);">Radera</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-default" ng-click="openCreate();">Skapa ny</button>
+        </div>
+    </div>
+</div>
